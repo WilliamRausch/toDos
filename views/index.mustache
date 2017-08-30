@@ -1,0 +1,17 @@
+<form action="/" method="post">
+  <input type="text" name="name" value="" placeholder="Task">
+  <input type="submit" value="Submit">
+</form>
+<h1> ToDos </h1>
+{{#todos}}
+	{{^done}}
+		{{name}}
+		<a href="/markoff/{{id}}">Done</a>
+	{{/done}}
+{{/todos}}
+<h1> Completed </h1>
+{{#todos}}
+	{{#done}}
+		{{name}}
+	{{/done}}
+{{/todos}}
