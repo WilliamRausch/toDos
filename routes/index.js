@@ -37,6 +37,31 @@ router.get("/markoff/:id", function(req, res) {
     	})
     });
 });
+router.post("/delete/:id", function(req,res){
+  models.task.destroy({
+    where: {
+    id: req.params.id
+  }
+  })
+  res.redirect("/")
+})
+router.post("/edit/:id", function(req, res){
+ models.task.update({
+    name: req.body.name,
+    done: false
+  }, {
+    where: {
+      id: req.params.id
+    }
+  })
+    .then(function(data) {
+      res.redirect("/");
+    })
+    .catch(function(err) {
+      res.redirect("/");
+    });
+})
+
 
 
 module.exports = router;

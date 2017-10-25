@@ -7,11 +7,25 @@
 	{{^done}}
 		{{name}}
 		<a href="/markoff/{{id}}">Done</a>
+		
+		<form action="/delete/{{id}}" method="post">
+		
+
+ 		<input type="submit" value="Delete">
+ 		 </form>
+
+  <form action="/edit/{{id}}" method="post">
+  <input type="text" name="name" value="" placeholder="change">
+  <input type="submit" value="Submit">
+</form>
+
 	{{/done}}
 {{/todos}}
 <h1> Completed </h1>
 {{#todos}}
 	{{#done}}
+	<form action="/delete/{{id}}" method="post">
+  <input type="submit" value="Delete">
 		{{name}}
 	{{/done}}
 {{/todos}}
